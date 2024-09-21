@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Prueba</title>
+
+    <!-- Scripts -->
+
+    <script src="js/jquery.min.js"></script>
+
+
+
+
+    <!-- Styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/basic.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div>
+
+        <div class="main-container">
+            <h1>Automation Test Site</h1>
+
+            <div>
+                <div id='second'>
+                    <div>
+                        <div>
+                            <div>
+                                Insert the client code to generate the discount value according to the promotion.
+                            </div>
+                            <div class="webflow-style-input">
+                                <input id="vendor" type="email" placeholder="Type the client code"></input>
+                                <button id="submitButton" type="submit">Search</button>
+                            </div>
+                        </div>
+                        <div id="product-card" style="display:none;">
+                            <div>
+                                <h1>Discount</h1>
+                                <h2 id="discount">$<span id="value">150</span></h2>
+                                <p class="desc">The promotional discount for this client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+                    jQuery('#submitButton').click(function (ev) {
+                        var vendor = jQuery('#vendor').val();
+                        var value = "$150";
+                        var show = false;
+                        switch (vendor) {
+                            case '534':
+                                value = "$120";
+                                show = true;
+                                break;
+                            case '235':
+                                value = "$125";
+                                show = true;
+                                break;
+                            case '678':
+                                value = "This client doesn't benefit from any discount";
+                                show = true;
+                                var noDiscount = true;
+                                break;
+                            case '564':
+                                value = "$100";
+                                show = true;
+                                break;
+                        }
+                        if (show == true) {
+                            jQuery('#product-card').show();
+                        } else {
+                            jQuery('#product-card').hide();
+                        }
+
+                        if (noDiscount == true) {
+                            jQuery('.desc').hide();
+                            jQuery('#discount').toggleClass("no-discount");
+                        } else {
+                            jQuery('.desc').show();
+                            jQuery('#discount').toggleClass("no-discount");
+                        }
+
+                        jQuery('#discount').html(value);
+
+                    });
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+/*Style*/
+.main-container {
+	margin: 0px auto;
+	width: 1000px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+}
+.webflow-style-input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 130%;
+    max-width: 500px;
+    border-radius: 2px;
+    padding: 1.4rem 2rem 1.6rem;
+    left: -20px;
+}
+
+.webflow-style-input input {
+    vertical-align: middle;
+}
